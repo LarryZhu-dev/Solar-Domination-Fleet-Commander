@@ -1,0 +1,5 @@
+{
+  "name": "Solar Domination: Fleet Commander",
+  "description": "A 3D space strategy game where players conquer the solar system by managing fleets and capturing planets in real-time. Features PVE levels and PvP multiplayer via MQTT.",
+  "requestFramePermissions": []
+}
