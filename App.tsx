@@ -186,7 +186,7 @@ const App: React.FC = () => {
   }, [gameState.gameStatus]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black select-none">
+    <div className="app-container">
       {gameState.gameStatus === 'MENU' ? (
         <Menu onStartPVE={startLevel} />
       ) : (
@@ -203,17 +203,17 @@ const App: React.FC = () => {
           />
           
           {(gameState.gameStatus === 'WON' || gameState.gameStatus === 'LOST') && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm z-50">
-              <div className="text-center p-8 bg-gray-900 border-2 border-white/20 rounded-2xl shadow-2xl">
-                <h1 className={`text-6xl font-black mb-4 ${gameState.gameStatus === 'WON' ? 'text-green-500' : 'text-red-500'}`}>
+            <div className="overlay-screen">
+              <div className="status-card">
+                <h1 className={`status-title ${gameState.gameStatus === 'WON' ? 'victory-text' : 'defeat-text'}`}>
                   {gameState.gameStatus === 'WON' ? 'VICTORY' : 'DEFEAT'}
                 </h1>
-                <p className="text-gray-400 mb-8 text-xl">
+                <p className="status-subtitle">
                   {gameState.gameStatus === 'WON' ? 'The solar system is yours.' : 'The cosmos has claimed you.'}
                 </p>
                 <button 
                   onClick={() => setGameState(p => ({ ...p, gameStatus: 'MENU' }))}
-                  className="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors"
+                  className="btn-primary"
                 >
                   RETURN TO BASE
                 </button>
